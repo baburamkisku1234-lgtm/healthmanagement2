@@ -1,0 +1,521 @@
+
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%);
+    color: #333;body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #0f3460 0%, #16213e 50%, #1a1a2e 100%);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Animated doctor background */
+.bg-doctors {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.bg-doctors-img {
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    object-fit: cover;
+    opacity: 0.35;
+    animation: doctorFloat 20s ease-in-out infinite;
+}
+
+.bg-doctors-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15,52,96,0.85) 0%, rgba(22,33,62,0.9) 50%, rgba(26,26,46,0.95) 100%);
+    pointer-events: none;
+}
+
+@keyframes doctorFloat {
+    0%, 100% { transform: translate(-5%, -5%) scale(1); }
+    25% { transform: translate(-2%, -8%) scale(1.02); }
+    50% { transform: translate(-8%, -2%) scale(1); }
+    75% { transform: translate(-5%, -5%) scale(1.01); }
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Pages */
+.page {
+    animation: fadeIn 0.3s ease;
+}
+
+.page.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Landing Page */
+.landing-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 48px 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+    text-align: center;
+}
+
+.proto-badge {
+    display: inline-block;
+    background: #ff6b35;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+}
+
+.landing-card h1 {
+    font-size: 2rem;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    margin: 0 0 8px 0;
+}
+
+.landing-card h2 {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+    margin: 0 0 24px 0;
+}
+
+.problem-statement {
+    max-width: 560px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+    font-size: 1rem;
+}
+
+.landing-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.landing-btn {
+    padding: 18px 36px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-width: 200px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.landing-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3),
+                inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+.doctor-btn {
+    background: rgba(25, 118, 210, 0.5);
+    color: white;
+}
+
+.patient-btn {
+    background: rgba(46, 125, 50, 0.5);
+    color: white;
+}
+
+/* Back Button */
+.back-btn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.back-btn:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* Cards */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    color: rgba(255,255,255,0.95);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25),
+                inset 0 1px 0 rgba(255,255,255,0.15);
+    margin-bottom: 20px;
+}
+
+.card h2, .card h3, .card h4 {
+    margin-top: 0;
+    color: #fff;
+}
+
+/* Demo elements */
+.demo-hint {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 20px;
+}
+
+.demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.demo-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+    font-weight: 500;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.demo-card:hover {
+    border-color: rgba(25, 118, 210, 0.6);
+    background: rgba(25, 118, 210, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.demo-icon {
+    font-size: 2rem;
+}
+
+.demo-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    margin: 28px 0;
+}
+
+/* Gate (Register / Login choice) */
+.gate-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.btn-register {
+    background: rgba(46, 125, 50, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.btn-register:hover {
+    background: rgba(46, 125, 50, 0.65);
+    transform: translateY(-2px);
+}
+
+.btn-login {
+    background: rgba(25, 118, 210, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.btn-login:hover {
+    background: rgba(25, 118, 210, 0.65);
+    transform: translateY(-2px);
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: rgba(255,255,255,0.95);
+}
+
+input, select {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.1);
+    font-size: 15px;
+    color: #fff;
+}
+
+input::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+select {
+    color: #fff;
+}
+
+select option {
+    background: #16213e;
+    color: #fff;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn {
+    background: rgba(25, 118, 210, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+}
+
+.btn:hover {
+    background: rgba(25, 118, 210, 0.7);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: rgba(92, 107, 192, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-secondary:hover {
+    background: rgba(63, 81, 181, 0.6);
+}
+
+.btn-success {
+    background: rgba(46, 125, 50, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-success:hover {
+    background: rgba(27, 94, 32, 0.7);
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+/* Demo Modal (screenshot overlay) */
+.demo-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.demo-modal.hidden {
+    display: none !important;
+}
+
+.demo-modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.5);
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+}
+
+.demo-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: #e0e0e0;
+    font-size: 24px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+
+.demo-close:hover {
+    background: #bdbdbd;
+}
+
+.demo-screenshot {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    margin: 40px 24px 12px;
+    overflow: hidden;
+}
+
+.demo-screen-header {
+    background: #1976d2;
+    color: white;
+    padding: 12px 16px;
+    font-weight: 600;
+}
+
+.demo-screen-body {
+    padding: 20px;
+    background: #fafafa;
+}
+
+.demo-screen-body p, .demo-screen-body ul {
+    margin: 8px 0;
+}
+
+.demo-caption {
+    font-size: 13px;
+    color: #666;
+    padding: 12px 24px 24px;
+    margin: 0;
+}
+
+/* Info box */
+.info-box {
+    background: rgba(255,255,255,0.08);
+    border-left: 4px solid rgba(25, 118, 210, 0.8);
+    padding: 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+}
+
+.info-box p {
+    margin: 6px 0;
+    color: rgba(255,255,255,0.95);
+}
+
+.info-box-wrap {
+    margin: 16px 0;
+}
+
+/* Records list */
+.records-list {
+    margin: 20px 0;
+}
+
+.records-list p {
+    color: rgba(255,255,255,0.9);
+}
+
+.record-item {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 14px;
+    margin-bottom: 12px;
+}
+
+.record-item p {
+    margin: 6px 0;
+    color: rgba(255,255,255,0.9);
+}
+
+/* QR Container */
+.qr-container {
+    text-align: center;
+    padding: 24px;
+    margin-top: 20px;
+}
+
+.qr-container.hidden {
+    display: none !important;
+}
+
+#qrcode {
+    display: inline-block;
+    margin: 16px 0;
+}
+
+#qrcode img {
+    border-radius: 8px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* responsive tweaks - placed last so later rules won't override */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px !important;
+    }
+
+    .demo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    input,
+    select {
+        max-width: 100%;
+    }
+
+    .landing-buttons {
+        flex-direction: column;
+    }
+}
+
