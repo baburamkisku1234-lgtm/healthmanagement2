@@ -53,9 +53,11 @@ def patient_login(request):
 
 # simple informational page
 # the template 'about.html' is located under hospital/templates/about.html
-# this view is referenced by the project URLconf (healthmanagement/urls.py)
-def About(request):
-    # could use HttpResponse or render a template
+# this view is referenced by the project URLconf (healthmanagement/urls
+
+
+# lowercase alias for URLconf convenience
+def home(request):
     return render(request, "about.html")
 
 

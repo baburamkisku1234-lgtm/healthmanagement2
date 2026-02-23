@@ -1,9 +1,10 @@
 # hospital/urls.py
 
 from django.urls import path                # ← import path
-from .views import add_record, patient_login, patient_records, register, search_patient            # ← import the view you’re routing to
+from .views import add_record, patient_login, patient_records, register, search_patient, home            # ← import the view you’re routing to
 
 urlpatterns = [
+    path('', home, name='home'),
     path("register/", register, name="register"),
     path("patient-login/", patient_login, name="patient_login"),
     path("add-record/",add_record),
